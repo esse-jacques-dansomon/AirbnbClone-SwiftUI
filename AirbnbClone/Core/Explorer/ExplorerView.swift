@@ -17,10 +17,17 @@ struct ExplorerView: View {
                 LazyVStack (spacing: 32){
             
                     ForEach( 0 ... 10, id: \.self) { listing in
-                        ListingItemView()
-                            .frame(height: 340)
+                        NavigationLink(
+                            value: listing ){
+                            ListingItemView()
+                                .frame(height: 400)
+                        }
+                     
                     }
                 } .padding()
+            }.navigationDestination(for: Int.self) { listing in
+                ListingtemDetailView().navigationBarBackButtonHidden()
+                
             }
         }
     }

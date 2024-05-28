@@ -14,15 +14,11 @@ This project is a clone of Airbnb, built using SwiftUI for iOS. It demonstrates 
 ## Screenshots
 
 <div style="display: flex; flex-direction: row; gap: 10px; flex-wrap: wrap;">
-  <img src="docs/screenshots/1.png" alt="Screen 1" width="20%" />
-  <img src="docs/screenshots/2.png" alt="Screen 2" width="20%" />
-  <img src="docs/screenshots/3.png" alt="Screen 3" width="20%" />
-  <img src="docs/screenshots/4.png" alt="Screen 4" width="20%" />
-  <img src="docs/screenshots/5.png" alt="Screen 5" width="20%" />
-  <img src="docs/screenshots/6.png" alt="Screen 6" width="20%" />
-  <img src="docs/screenshots/7.png" alt="Screen 7" width="20%" />
-  <img src="docs/screenshots/8.png" alt="Screen 8" width="20%" />
-  <img src="docs/screenshots/9.png" alt="Screen 9" width="20%" />
+  <img src="docs/1.png" alt="Screen 1" width="20%" />
+  <img src="docs/2.png" alt="Screen 2" width="20%" />
+  <img src="docs/3.png" alt="Screen 3" width="20%" />
+  <img src="docs/4.png" alt="Screen 4" width="20%" />
+  <img src="docs/5.png" alt="Screen 5" width="20%" />
 </div>
 
 
