@@ -19,6 +19,7 @@ This project is a clone of Airbnb, built using SwiftUI for iOS. It demonstrates 
   <img src="docs/3.png" alt="Screen 3" width="20%" />
   <img src="docs/4.png" alt="Screen 4" width="20%" />
   <img src="docs/5.png" alt="Screen 5" width="20%" />
+  <img src="docs/6.png" alt="Screen 5" width="20%" />
 </div>
 
 
