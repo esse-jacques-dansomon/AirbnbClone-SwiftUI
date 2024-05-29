@@ -17,30 +17,33 @@ struct ExplorerView: View {
             if(showDestinationSearchView)  {
               DestinationSearchView(show: $showDestinationSearchView)
             } else {
-                ScrollView{
-                    
+                VStack {
                     SearchAndFilterBarView()
                         .onTapGesture {
                             withAnimation(.snappy) {
                                 showDestinationSearchView.toggle()
                             }
                         }
+                    CategoryCarouselView()
+                    ScrollView{
+                        
+                        LazyVStack (spacing: 32){
                     
-                    LazyVStack (spacing: 32){
-                
-                        ForEach( 0 ... 10, id: \.self) { listing in
-                            NavigationLink(
-                                value: listing ){
-                                ListingItemView()
-                                    .frame(height: 420)
+                            ForEach( 0 ... 10, id: \.self) { listing in
+                                NavigationLink(
+                                    value: listing ){
+                                    ListingItemView()
+                                        .frame(height: 420)
+                                }
+                             
                             }
-                         
-                        }
-                    } .padding()
-                }.navigationDestination(for: Int.self) { listing in
-                    ListingtemDetailView()
-                        .navigationBarBackButtonHidden()
-                    
+                        } .padding()
+                    }
+                    .navigationDestination(for: Int.self) { listing in
+                        ListingtemDetailView()
+                            .navigationBarBackButtonHidden()
+                        
+                }
                 }
             }
             

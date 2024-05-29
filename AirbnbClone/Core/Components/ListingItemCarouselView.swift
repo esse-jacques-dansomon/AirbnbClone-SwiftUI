@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ListingItemCarrouselView : View {
+struct ListingItemCarouselView : View {
     var images = [
     "listing-0",
     "listing-1",
@@ -33,5 +33,5 @@ struct ListingItemCarrouselView : View {
 }
 
 #Preview {
-    ListingItemCarrouselView()
+    ListingItemCarouselView()
 }

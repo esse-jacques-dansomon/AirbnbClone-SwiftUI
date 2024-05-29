@@ -15,7 +15,7 @@ struct ListingtemDetailView: View {
     var body: some View {
         ScrollView {
             ZStack(alignment: .topLeading) {
-                ListingItemCarrouselView()
+                ListingItemCarouselView()
                     .frame(height: 350)
                 
                 Button{
@@ -179,6 +179,7 @@ struct ListingtemDetailView: View {
             
             Spacer(minLength: 40)
         }
+        .toolbar(.hidden, for: .tabBar)
         .ignoresSafeArea()
         .overlay(alignment: .bottom) {
             VStack {
