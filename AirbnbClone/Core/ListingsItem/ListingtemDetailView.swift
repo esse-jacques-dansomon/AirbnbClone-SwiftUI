@@ -146,10 +146,11 @@ struct ListingtemDetailView: View {
                         .font(.headline)
                     
                     VStack {
-                        ForEach(1..<8) { item in
+                        ForEach(1..<5) { item in
                             HStack (alignment: .center, spacing: 15){
                                 Image(systemName: "bed.double");
                                 Text("Bedroom \(item)")
+                                
                             }
                             
                             

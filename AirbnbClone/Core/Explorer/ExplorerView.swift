@@ -20,13 +20,14 @@ struct ExplorerView: View {
                         NavigationLink(
                             value: listing ){
                             ListingItemView()
-                                .frame(height: 400)
+                                .frame(height: 420)
                         }
                      
                     }
                 } .padding()
             }.navigationDestination(for: Int.self) { listing in
-                ListingtemDetailView().navigationBarBackButtonHidden()
+                ListingtemDetailView()
+                    .navigationBarBackButtonHidden()
                 
             }
         }

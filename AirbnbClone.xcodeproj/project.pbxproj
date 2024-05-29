@@ -18,6 +18,8 @@
 		409783AA2C06616D0010F509 /* ListingItemCarrouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409783A92C06616D0010F509 /* ListingItemCarrouselView.swift */; };
 		409783AC2C0690E70010F509 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 409783AB2C0690E70010F509 /* README.md */; };
 		409783B02C06A6610010F509 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 409783AF2C06A6610010F509 /* 1.png */; };
+		409783B22C06A9180010F509 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 409783B12C06A9180010F509 /* 2.png */; };
+		409783B42C06A9AB0010F509 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 409783B32C06A9AB0010F509 /* 3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		409783A92C06616D0010F509 /* ListingItemCarrouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingItemCarrouselView.swift; sourceTree = "<group>"; };
 		409783AB2C0690E70010F509 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		409783AF2C06A6610010F509 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		409783B12C06A9180010F509 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		409783B32C06A9AB0010F509 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				409783AF2C06A6610010F509 /* 1.png */,
+				409783B12C06A9180010F509 /* 2.png */,
+				409783B32C06A9AB0010F509 /* 3.png */,
 			);
 			path = docs;
 			sourceTree = "<group>";
@@ -258,7 +264,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				409783B22C06A9180010F509 /* 2.png in Resources */,
 				409783AC2C0690E70010F509 /* README.md in Resources */,
+				409783B42C06A9AB0010F509 /* 3.png in Resources */,
 				4097837D2C0610320010F509 /* Preview Assets.xcassets in Resources */,
 				409783B02C06A6610010F509 /* 1.png in Resources */,
 				4097837A2C0610320010F509 /* Assets.xcassets in Resources */,
