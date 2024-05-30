@@ -10,6 +10,6 @@ import Foundation
 
 class ExploreService {
     func fetchLintings() async throws ->  [Listing] {
-        return DeveloperPreview.shared.mockListings
+        return DeveloperPreview.shared.mockListings.shuffled()
     }
 }

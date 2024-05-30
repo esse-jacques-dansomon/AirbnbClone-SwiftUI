@@ -33,8 +33,8 @@ class ExportViewModel : ObservableObject {
     
     func updateListingForLocation()  {
         let filteredListings = listings.filter( {
-            $0.city.lowercased() == self.location.lowercased() ||
-            $0.state.lowercased() == self.location.lowercased()
+            $0.city.lowercased().contains(self.location.lowercased())  ||
+            $0.state.lowercased().contains(self.location.lowercased())
         })
         
         

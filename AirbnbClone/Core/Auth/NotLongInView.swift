@@ -15,6 +15,8 @@ struct NotLongPageItem {
 
 struct NotLongInView: View {
     var page :  NotLongPageItem
+    
+    @State var isLoginOrSignUp : Bool = false;
     var body: some View {
         ScrollView {
     
@@ -33,7 +35,7 @@ struct NotLongInView: View {
                         .foregroundStyle(.gray)
                     
                     Button {
-                        
+                        isLoginOrSignUp = true
                     } label: {
                         Text("Log in")
                             .font(.title3)
@@ -47,7 +49,11 @@ struct NotLongInView: View {
                         
                         Spacer()
                             
-                    }.padding(.top, 60)
+                    }
+                    .padding(.top, 60)
+                    .sheet(isPresented: $isLoginOrSignUp) {
+                        LoginOrSignUpView(dissis: $isLoginOrSignUp)
+                    }
                        
                 }.padding()
                 

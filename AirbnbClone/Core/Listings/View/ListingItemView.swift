@@ -24,15 +24,15 @@ struct ListingItemView: View {
                 HStack(alignment: .top){
                     //details
                     VStack(alignment: .leading,spacing: 7) {
-                        Text("\(listing.city) \(listing.address)")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
-                            .foregroundStyle(.black)   
+//                        Text("\(listing.city) \(listing.address)")
+//                            .font(.subheadline)
+//                            .fontWeight(.semibold)
+//                            .foregroundStyle(.black)   
                         Text(listing.title)
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .foregroundStyle(.black)
-                        Text("Hosted by \(listing.ownerName)")
+                        Text("Hosted by \(listing.ownerName) - \(listing.city) ")
                             .font(.subheadline)
                             .foregroundStyle(.gray)
                         HStack(spacing: 4){

@@ -37,6 +37,7 @@
 		409783D92C0812760010F509 /* ExportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409783D82C0812760010F509 /* ExportViewModel.swift */; };
 		409783DB2C0812A80010F509 /* ExploreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409783DA2C0812A80010F509 /* ExploreService.swift */; };
 		409783DE2C0889740010F509 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409783DD2C0889740010F509 /* SplashView.swift */; };
+		409783E02C08C4230010F509 /* LoginOrSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409783DF2C08C4230010F509 /* LoginOrSignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		409783D82C0812760010F509 /* ExportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewModel.swift; sourceTree = "<group>"; };
 		409783DA2C0812A80010F509 /* ExploreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreService.swift; sourceTree = "<group>"; };
 		409783DD2C0889740010F509 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		409783DF2C08C4230010F509 /* LoginOrSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOrSignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,10 +146,10 @@
 				409783C72C074D600010F509 /* Auth */,
 				409783912C061B6C0010F509 /* Explorer */,
 				409783952C061BA30010F509 /* Wishlists */,
+				409783E12C08E3AB0010F509 /* Inbox */,
 				409783CA2C07FCB90010F509 /* Trips */,
 				409783942C061B990010F509 /* Profile */,
 				409783972C061BC20010F509 /* Root */,
-				409783CD2C07FD6F0010F509 /* InboxView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				409783C82C07F9400010F509 /* NotLongInView.swift */,
+				409783DF2C08C4230010F509 /* LoginOrSignUpView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -319,6 +322,14 @@
 				409783DD2C0889740010F509 /* SplashView.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		409783E12C08E3AB0010F509 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				409783CD2C07FD6F0010F509 /* InboxView.swift */,
+			);
+			path = Inbox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +417,7 @@
 				409783B62C06AA900010F509 /* DestinationSearchView.swift in Sources */,
 				409783CE2C07FD6F0010F509 /* InboxView.swift in Sources */,
 				409783D12C0809E80010F509 /* Listing.swift in Sources */,
+				409783E02C08C4230010F509 /* LoginOrSignUpView.swift in Sources */,
 				4097839B2C06205B0010F509 /* ListingItemView.swift in Sources */,
 				409783C92C07F9400010F509 /* NotLongInView.swift in Sources */,
 				409783992C061C4D0010F509 /* ExplorerView.swift in Sources */,
