@@ -46,6 +46,8 @@
 		409783F92C08F70C0010F509 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 409783F82C08F70C0010F509 /* 11.png */; };
 		409783FB2C08F7170010F509 /* 12.png in Resources */ = {isa = PBXBuildFile; fileRef = 409783FA2C08F7170010F509 /* 12.png */; };
 		409783FD2C08F7360010F509 /* 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 409783FC2C08F7360010F509 /* 13.png */; };
+		409783FF2C0900620010F509 /* demo-1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 409783FE2C0900620010F509 /* demo-1.gif */; };
+		409784012C0902870010F509 /* demo-2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 409784002C0902870010F509 /* demo-2.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		409783F82C08F70C0010F509 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
 		409783FA2C08F7170010F509 /* 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 12.png; sourceTree = "<group>"; };
 		409783FC2C08F7360010F509 /* 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 13.png; sourceTree = "<group>"; };
+		409783FE2C0900620010F509 /* demo-1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "demo-1.gif"; sourceTree = "<group>"; };
+		409784002C0902870010F509 /* demo-2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "demo-2.gif"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +256,8 @@
 		4097839F2C0658110010F509 /* docs */ = {
 			isa = PBXGroup;
 			children = (
+				409784002C0902870010F509 /* demo-2.gif */,
+				409783FE2C0900620010F509 /* demo-1.gif */,
 				409783EC2C08F69A0010F509 /* 0.png */,
 				409783E22C08F5B40010F509 /* 1.png */,
 				409783E42C08F6330010F509 /* 2.png */,
@@ -415,8 +421,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				409783E72C08F64C0010F509 /* 3.png in Resources */,
+				409783FF2C0900620010F509 /* demo-1.gif in Resources */,
 				409783FB2C08F7170010F509 /* 12.png in Resources */,
 				409783FD2C08F7360010F509 /* 13.png in Resources */,
+				409784012C0902870010F509 /* demo-2.gif in Resources */,
 				409783F72C08F7030010F509 /* 10.png in Resources */,
 				409783AC2C0690E70010F509 /* README.md in Resources */,
 				409783F92C08F70C0010F509 /* 11.png in Resources */,
