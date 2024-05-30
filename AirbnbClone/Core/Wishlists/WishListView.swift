@@ -9,7 +9,13 @@ import SwiftUI
 
 struct WishListView: View {
     var body: some View {
-        Text("Hello, WishListView!")
+        NotLongInView(
+            page: NotLongPageItem(
+                title: "Wishlists",
+                subTitle: "Log in to view your wistlists",
+                message: "You can create, view, or edit wishlists once you've logged in"
+            )
+        )
     }
 }
 
