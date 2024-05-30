@@ -32,7 +32,7 @@ This project is a clone of Airbnb, built using SwiftUI for iOS. It demonstrates 
 ## Demo
 
 <div style="display: flex; flex-direction: row; gap: 10px; flex-wrap: wrap;">
-  <img src="docs/demo-1.gif" alt="demo 1" width="50%" />
+  <img src="docs/demo-1.gif" alt="demo 1" width="33%" />
   <img src="docs/demo-2.gif" alt="demo 2" width="33%" />
 </div>
 
