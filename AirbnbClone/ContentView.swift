@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isSplashViewActive = true
     var body: some View {
-        MainTabBarView()
+        if (isSplashViewActive) {
+           SplashView(isActive: $isSplashViewActive)
+        }else{
+            MainTabBarView()
+        }
     }
 }
 

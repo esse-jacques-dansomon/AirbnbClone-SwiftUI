@@ -1,5 +1,5 @@
 //
-//  ListingItemCarrouselView.swift
+//  ListingItemCarouselView.swift
 //  AirbnbClone
 //
 //  Created by Esse Jacques  on 28/05/2024.
@@ -26,7 +26,6 @@ struct ListingItemCarouselView : View {
             }
         }
         .frame(height: 350 )
-//        .clipShape(RoundedRectangle(cornerRadius: 10))
         .tabViewStyle(.page)
         
     }

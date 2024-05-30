@@ -15,12 +15,14 @@ enum DestinationSearchOption {
 
 struct DestinationSearchView: View {
     
-    @Binding  var show : Bool;
-    @State private var destination = "";
-    @State private var startDate =  Date();
-    @State private var endDate =  Date();
+    @Binding var show : Bool
+    @ObservedObject var viewModel : ExportViewModel;
+    @State private var startDate : Date =  Date()
+    @State private var endDate : Date =  Date()
     @State private var guests = 0;
-    @State private var selectedDestination: DestinationSearchOption = .location;
+    @State private var selectedDestination: DestinationSearchOption = .location
+    
+  
     
     var body: some View {
         VStack (alignment: .center,spacing: 30) {
@@ -36,10 +38,12 @@ struct DestinationSearchView: View {
                 }    
                 Spacer()
                
-                if !destination.isEmpty {
+                if !viewModel.location.isEmpty {
                     Button{
                         withAnimation(.snappy) {
-                            destination = ""
+                            viewModel.location = ""
+                            viewModel.updateListingForLocation()
+                          
                         }
                     }label: {
                         Text("Clear").foregroundStyle(.black)
@@ -61,7 +65,11 @@ struct DestinationSearchView: View {
                         HStack {
                             Image(systemName: "magnifyingglass")
                                 .imageScale(.small)
-                            TextField("Search destination" ,text: $destination)
+                            TextField("Search destination" ,text: $viewModel.location)
+                                .onSubmit {
+                                        viewModel.updateListingForLocation()
+                                        show.toggle()
+                                    }
                         }.frame(height: 44)
                             .padding(.horizontal)
                             .overlay{
@@ -72,16 +80,12 @@ struct DestinationSearchView: View {
                     }
                 }else {
                     CollapsePickerView(title: "Where to ?", description: "add destination ")
-                    
-                        .onTapGesture {
-                            selectedDestination = .dates
-                        }
+                  
                 }
             }
             .modifier(CollapsePickerViewModifier())
             .frame(height: selectedDestination == .location ? 120 : 64)
             .onTapGesture {
-               
                 withAnimation(.snappy) {selectedDestination = .location}
             }
             
@@ -97,9 +101,13 @@ struct DestinationSearchView: View {
                         Spacer()
                         
                         VStack {
-                            DatePicker("From", selection: $startDate, displayedComponents: .date)
-                            Divider()
-                            DatePicker("To", selection: $endDate, displayedComponents: .date)
+                            DatePicker("From", 
+                                       selection: $startDate,
+                                       displayedComponents: .date)
+                         
+                                     Divider()
+                                     DatePicker("To", selection: $endDate, displayedComponents: .date)
+                        
 
                         }
                     }
@@ -156,14 +164,58 @@ struct DestinationSearchView: View {
             
             Spacer()
             
-        } .padding()
+        }.padding()
+            .overlay(alignment: .bottom){
+                HStack {
+                    Button {
+                        viewModel.location = "";
+                        guests = 0;
+                        startDate = Date();
+                        endDate = Date();
+                        viewModel.updateListingForLocation()
+                
+                    }label: {
+                        Text("Clear all")
+                             .foregroundStyle(.black)
+                             .underline()
+                    }
+                   Spacer()
+                    Button {
+                        viewModel.updateListingForLocation()
+                        show.toggle()
+                    } label: {
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 15, height: 15)
+                                .foregroundColor(.white)
+                                
+                            Text("Search")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                               
+                        } .foregroundStyle(.white)
+                            .font(.subheadline)
+                            .frame(width: 140, height: 50)
+                            .background(.pink)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                    }
+                }
+                .padding(.top)
+                .padding(.horizontal)
+                .frame(height: 70)
+                .background(.white)
+            }
+            .toolbar(.hidden, for: .tabBar)
+            .background(Color(.systemGray5))
         
     
     }
 }
 
 #Preview {
-    DestinationSearchView(show: .constant(false))
+    DestinationSearchView(show: .constant(false), viewModel: ExportViewModel(service: ExploreService()))
 }
 
 struct CollapsePickerViewModifier : ViewModifier {
@@ -190,7 +242,7 @@ struct CollapsePickerView: View {
                 
                 Text(description)
                     .font(.subheadline)
-                .fontWeight(.semibold)                }
+                .fontWeight(.medium)                }
         }
     }
 }

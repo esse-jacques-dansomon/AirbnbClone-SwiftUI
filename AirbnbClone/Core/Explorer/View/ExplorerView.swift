@@ -16,10 +16,10 @@ struct ExplorerView: View {
         NavigationStack {
             
             if(showDestinationSearchView)  {
-              DestinationSearchView(show: $showDestinationSearchView)
+                DestinationSearchView(show: $showDestinationSearchView, viewModel:  viewModel)
             } else {
                 VStack {
-                    SearchAndFilterBarView()
+                    SearchAndFilterBarView(location: $viewModel.location)
                         .onTapGesture {
                             withAnimation(.snappy) {
                                 showDestinationSearchView.toggle()
@@ -32,7 +32,7 @@ struct ExplorerView: View {
                     
                             ForEach( viewModel.listings) { listing in
                                 NavigationLink(value: listing ){
-                                    ListingItemView(listing: listing)
+                                    ListingItemView(listing: listing, canBeShare: true)
                                         .frame(height: 420)
                                 }
                              
