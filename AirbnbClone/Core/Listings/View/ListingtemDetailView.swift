@@ -11,6 +11,18 @@ import MapKit
 struct ListingtemDetailView: View {
 
     @Environment(\.dismiss) var dismiss;
+    var listing : Listing
+    @State private var cameraPosition: MapCameraPosition
+    
+    init(listing: Listing) {
+        self.listing = listing
+        
+        let region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: listing.latitude, longitude: listing.longgitude),
+            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        
+        self._cameraPosition = State(initialValue: .region(region))
+    }
     
     var body: some View {
         ScrollView {
@@ -36,7 +48,7 @@ struct ListingtemDetailView: View {
             
             VStack (alignment: .leading) {
                 VStack (alignment: .leading,spacing: 8) {
-                    Text("Dakar - Sénégal")
+                    Text("\(listing.city)  \(listing.state) - \(listing.type.description) ")
                         .font(.title2)
                     
                     HStack(alignment: .center){
@@ -46,7 +58,7 @@ struct ListingtemDetailView: View {
                             .frame(width:15, height: 15)
                             .foregroundColor(.yellow)
                            
-                        Text("4.89")
+                        Text("\(listing.rating.formatted())")
                             .font(.caption)
                         Text("22 reviews")
                             .font(.caption)
@@ -56,7 +68,7 @@ struct ListingtemDetailView: View {
                         Spacer()
                     }
                     
-                    Text("Liberté 2, Dakar - Sénégal")
+                    Text(listing.address)
                         .font(.caption)
                 }
                 
@@ -64,21 +76,21 @@ struct ListingtemDetailView: View {
                 
                 HStack{
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Enter villa hoted by Esse Jacques Dans")
+                        Text("Entire \(listing.type.description) hosted by \(listing.ownerName)")
                             .font(.headline)
                             .frame(width: 250, alignment: .leading)
                             .fontWeight(.bold)
                     
                         HStack{
                            
-                            Text("4 Guests")
+                            Text("\(listing.numberOfGuests) Guests")
                                 .font(.caption)
-                            Text("2 Bedrooms")
+                            Text("\(listing.numberOfBedrooms)  Bedrooms")
                                 .font(.caption)
                             
-                            Text("3 Kitchens")
+                            Text("\(listing.numberOfBathrooms)  Baths")
                                 .font(.caption)
-                            Text("2 Douches")
+                            Text("\(listing.numberOfBeds)  Beds")
                                 .font(.caption)
                         
                         }.frame(maxWidth: .infinity, alignment: .leading)
@@ -89,7 +101,7 @@ struct ListingtemDetailView: View {
                     
                     Spacer()
                     
-                    Image( "profile")
+                    Image("profile")
                         .resizable()
                         .scaledToFill()
                         .clipShape(Circle())
@@ -99,13 +111,16 @@ struct ListingtemDetailView: View {
                 
                 Divider()
                 
-                VStack{
-                    ForEach(0 ..< 2) { feature in
-                        HStack(spacing: 9){
-                            Image(systemName: "medal")
+                VStack(alignment: .leading){
+                    ForEach(listing.features) { feature in
+                        HStack(spacing: 9) {
+                            Image(systemName: feature.imageName)
                             VStack (alignment: .leading){
-                                Text("Superhost")
-                                Text("Appartement entièrement meublé et équipé d'une télévision, d'Internet par câble et wi-fi, d'eau chaude, situé dans un quartier calme, à 250m de la plage")
+                                Text(feature.title)
+                                    .font(.footnote)
+                                    .fontWeight(.semibold)
+                                
+                                Text(feature.subtitle)
                                     .font(.caption)
                                     .foregroundStyle(.gray)
                             }
@@ -122,10 +137,10 @@ struct ListingtemDetailView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(1..<8) { item in
-                                VStack (alignment: .leading){
+                            ForEach(0..<listing.numberOfBedrooms) { item in
+                                VStack (alignment: .center){
                                     Image(systemName: "bed.double");
-                                    Text("Bedroom \(item)")
+                                    Text("Bedroom \(item + 1)")
                                 }.frame(width: 132, height: 100)
                                     .overlay{
                                         RoundedRectangle(cornerRadius: 12)
@@ -146,12 +161,13 @@ struct ListingtemDetailView: View {
                         .font(.headline)
                     
                     VStack {
-                        ForEach(1..<5) { item in
-                            HStack (alignment: .center, spacing: 15){
-                                Image(systemName: "bed.double");
-                                Text("Bedroom \(item)")
+                        ForEach(listing.amentities) { item in
+                            HStack (alignment: .center, spacing: 30){
+                                Image(systemName: item.imageName);
+                                Text("\(item.title)")
+                                Spacer()
                                 
-                            }
+                            }.padding(.vertical, 5)
                             
                             
                         }
@@ -165,7 +181,9 @@ struct ListingtemDetailView: View {
                     Text("Where you will be")
                         .font(.headline)
                     
-                    Map().frame(height: 200)
+                    Map( position: $cameraPosition)
+                    .frame(height: 200)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
                     
                 }.padding(.vertical)
                 
@@ -189,7 +207,7 @@ struct ListingtemDetailView: View {
                 HStack  {
                     
                     VStack (alignment: .leading) {
-                        Text("$500")
+                        Text("$\(listing.pricePerNigth)")
                             .font(.subheadline)
                             .fontWeight(.semibold)
                         Text("Tobal Before tax")
@@ -226,5 +244,5 @@ struct ListingtemDetailView: View {
 }
 
 #Preview {
-    ListingtemDetailView()
+    ListingtemDetailView(listing: DeveloperPreview.shared.mockListings[0])
 }

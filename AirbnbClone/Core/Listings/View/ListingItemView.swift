@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ListingItemView: View {
     
-    
+    var listing: Listing
     var body: some View {
         VStack(spacing: 10) {
             //Images
@@ -21,14 +21,14 @@ struct ListingItemView: View {
             HStack(alignment: .top){
                 //details
                 VStack(alignment: .leading) {
-                    Text("Point E, Dakar")
+                    Text(listing.city)
                         .fontWeight(.semibold)
-                    Text("Lib 271 Rue")
+                    Text(listing.address)
                         .foregroundStyle(.black)
                     Text("Nov 3 - 10")
                         .foregroundStyle(.black)
                     HStack(spacing: 4){
-                        Text("$579").fontWeight(.semibold)
+                        Text("$\(listing.pricePerNigth)").fontWeight(.semibold)
                         Text("night")
                     }
                 }
@@ -38,11 +38,9 @@ struct ListingItemView: View {
                 //rating
                 HStack{
                     Image(systemName: "star.fill").foregroundColor(.yellow)
-                    Text("4.89")
+                    Text("\(listing.rating.formatted())")
+
                 }
-                
-                
-                
                 
             }.font(.footnote)
         }
@@ -50,5 +48,5 @@ struct ListingItemView: View {
 }
 
 #Preview {
-    ListingItemView()
+    ListingItemView( listing: DeveloperPreview.shared.mockListings[0])
 }
